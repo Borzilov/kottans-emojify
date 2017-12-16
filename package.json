@@ -10,18 +10,18 @@
     "react-dom": "^16.2.0",
     "react-scripts": "1.0.17"
   },
+  "scripts": {
+    "precommit": "lint-staged",
+    "start": "PORT=8080 react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
   "lint-staged": {
     "src/**/*.{js,jsx,json,css}": [
       "prettier --single-quote --write",
       "eslint",
       "git add"
     ]
-  },
-  "scripts": {
-    "precommit": "lint-staged",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
   }
 }
