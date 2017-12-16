@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import Login from './containers/Login';
 import OAuth from './containers/OAuth';
+import Home from './containers/Home';
 
-const Home = () => <h1>Hello in Kottans Emojify</h1>;
-const About = () => <h1>This app was create with ❤️</h1>;
+const About = () => <h1>This app was create with &lt;3</h1>;
 
 class App extends Component {
   render() {
