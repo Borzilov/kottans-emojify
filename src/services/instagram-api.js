@@ -13,6 +13,23 @@ const API = {
   hasAuth() {
     return !!token;
   },
+  getPhotos() {
+    if (!token) {
+      throw new Error('Token is not yet set');
+    }
+    const getUrl = photoObj => photoObj.images.standard_resolution.url;
+    return fetch(
+      `${API_HOST}/v1/users/self/media/recent/?access_token=${token}`
+    )
+      .then(resp => resp.json())
+      .then(respBody => respBody.data)
+      .then(data =>
+        data.map(entry => ({
+          id: entry.id,
+          urls: (entry.carousel_media || [entry]).map(getUrl)
+        }))
+      );
+  },
   setToken(newToken) {
     token = newToken;
     localStorage.INSTA_TOKEN = newToken;
